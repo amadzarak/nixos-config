@@ -78,12 +78,19 @@
     variant = "";
   };
 
+  programs.zsh = 
+  {
+      enable = true;
+  };
+  users.defaultUserShell = pkgs.zsh;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.amad = {
     isNormalUser = true;
     description = "amad";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    useDefaultShell = true;
   };
 
   nix.settings.allowed-users = 
@@ -117,6 +124,7 @@
   unzip		# [1:56 PM] April 26, 2025: Fix error in nvim 'style.lua' error
   ];
 
+  environment.shells = with pkgs; [zsh];
 
   # FONTS
   fonts.fontDir.enable = true;
