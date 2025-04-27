@@ -36,6 +36,7 @@
   {
       enable = true;
       enableZshIntegration = true;
+      useTheme = "atomicBit";
   };
 
 
