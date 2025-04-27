@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  customNeovim = import ../nvim/nvim.nix;
+in
 {
   home.username = "amad";
   home.homeDirectory = "/home/amad";
@@ -12,9 +14,11 @@
     shellAliases = 
     {
       "waybar-reload" = "pkill waybar && hyprctl dispatch exec waybar";
+      "tree" = "tree -L 1";
     };
   };
 
+  # ZSHELL
   programs.zsh = 
   {
     enable = true;
@@ -24,6 +28,7 @@
     shellAliases = 
     {
       "waybar-reload" = "pkill waybar && hyprctl dispatch exec waybar";
+      "tree" = "tree -L 1";
     };
     oh-my-zsh = 
     {
@@ -32,13 +37,15 @@
     };
   };
 
+  # ZSHELL : oh-my-posh
   programs.oh-my-posh = 
   {
       enable = true;
       enableZshIntegration = true;
-      useTheme = "atomicBit";
+      #      useTheme = "clean-detailed";
+      #useTheme = "di4am0nd";
+      useTheme = "negligible";
   };
-
 
   # GIT
   programs.git = 
@@ -52,7 +59,15 @@
     };
   };
 
-  home.packages = [ pkgs.oh-my-posh ];
+  # NEOVIM
+  programs.neovim = customNeovim pkgs;
+
+  home.packages = 
+  [ 
+      pkgs.oh-my-posh 
+      pkgs.tree
+
+  ];
   home.file = {};
   home.sessionVariables = {};
   programs.home-manager.enable = true;
