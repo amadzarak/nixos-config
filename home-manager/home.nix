@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  customNeovim = import ../nvim/nvim.nix;
+#  customNeovim = import ../nvim/nvim.nix;
 in
 {
   home.username = "amad";
@@ -60,7 +60,33 @@ in
   };
 
   # NEOVIM
-  programs.neovim = customNeovim pkgs;
+#  programs.neovim = customNeovim pkgs;
+  programs.neovim = 
+  {
+    enable = true;
+    extraLuaConfig = ''
+      vim.opt.clipboard = 'unnamedplus' -- use system keyboard for yank
+      vim.opt.nu = true                 -- set line numbers -- set line numbers
+      vim.opt.relativenumber = true     -- use relative line numbers
+
+      -- set tab size to 2 spaces
+      vim.opt.tabstop = 2
+      vim.opt.softtabstop = 2
+      vim.opt.shiftwidth = 2
+      vim.opt.expandtab = true
+      vim.opt.smartindent = true
+       
+      vim.opt.wrap = false
+       
+      vim.opt.incsearch = true -- incremental search
+       
+      vim.opt.termguicolors = true
+    '';
+    plugins = 
+    [
+        (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [p.c p.go p.java p.python]))
+    ];
+  };
 
   home.packages = 
   [ 
