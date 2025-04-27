@@ -32,6 +32,13 @@
     };
   };
 
+  programs.oh-my-posh = 
+  {
+      enable = true;
+      enableZshIntegration = true;
+  };
+
+
   # GIT
   programs.git = 
   {
@@ -44,7 +51,7 @@
     };
   };
 
-  home.packages = [];
+  home.packages = [ pkgs.oh-my-posh ];
   home.file = {};
   home.sessionVariables = {};
   programs.home-manager.enable = true;
