@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-#      <home-manager/nixos>	# [11:05 AM] April 27, 2025
     ];
 
   # Bootloader.
@@ -114,18 +113,9 @@
   hyprpaper	# [7:59 PM] April 25, 2025
   yazi
   waypaper	# [9:43 PM] April 25, 2025
-  #home-manager	# [12:07 PM] April 26, 2025
   fastfetch	# [12:54 PM] April 26, 2025
   unzip		# [1:56 PM] April 26, 2025: Fix error in nvim 'style.lua' error
   ];
-
-
-#  home-manager.users.amad = {pkgs, ...}: {
-#    home.stateVersion = "24.11";
-#    home.packages = with pkgs; [
-#
-#    ];
-#  };
 
 
   # FONTS
