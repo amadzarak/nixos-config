@@ -36,7 +36,7 @@
       # home-manager/home.nix
       homeConfigurations = 
       {
-        "amad@nixos" = home-manager.lib.homeManagerConfiguration {
+        amad = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [./home-manager/home.nix];
         };
