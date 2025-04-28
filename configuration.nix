@@ -52,7 +52,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-
+  # April 28, 2025: [6:59 PM]: Enable docker on NixOS
+  virtualisation.docker.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -88,7 +89,7 @@
   users.users.amad = {
     isNormalUser = true;
     description = "amad";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
     useDefaultShell = true;
   };
@@ -104,24 +105,25 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vim		# April 23, 2025: Install vim
-  kitty		# [7:50 PM] April 23, 2025: Install kitty terminal
-  wget		# [8:25 PM] April 23, 2025
-  git		# [8:25 PM] April 23, 2025
-  waybar	# [8:27 PM] April 23, 2025
-  neovim 	# [8:28 PM] April 23, 2025
-  rofi-wayland
-  wl-clipboard
-  google-chrome
-  vivaldi
-  vscode
-  ripgrep	# [7:16 PM] April 25, 2025
-  tmux		# [7:30 PM] April 25, 2025
-  hyprpaper	# [7:59 PM] April 25, 2025
-  yazi
-  waypaper	# [9:43 PM] April 25, 2025
-  fastfetch	# [12:54 PM] April 26, 2025
-  unzip		# [1:56 PM] April 26, 2025: Fix error in nvim 'style.lua' error
+	  vim		# April 23, 2025: Install vim
+	  kitty		# [7:50 PM] April 23, 2025: Install kitty terminal
+	  wget		# [8:25 PM] April 23, 2025
+	  git		# [8:25 PM] April 23, 2025
+	  waybar	# [8:27 PM] April 23, 2025
+	  neovim 	# [8:28 PM] April 23, 2025
+	  rofi-wayland
+	  wl-clipboard
+	  google-chrome
+	  vivaldi
+	  vscode
+	  ripgrep	# [7:16 PM] April 25, 2025
+	  tmux		# [7:30 PM] April 25, 2025
+	  hyprpaper	# [7:59 PM] April 25, 2025
+	  yazi
+	  waypaper	# [9:43 PM] April 25, 2025
+	  fastfetch	# [12:54 PM] April 26, 2025
+	  unzip		# [1:56 PM] April 26, 2025: Fix error in nvim 'style.lua' error
+	  nixfmt-rfc-style	# [7:36 PM] April 28, 2025: Add nixfmt package
   ];
 
   environment.shells = with pkgs; [zsh];
