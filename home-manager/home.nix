@@ -7,6 +7,8 @@ in
   home.homeDirectory = "/home/amad";
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  # ALLOW UNFREE IN HOME MANAGER
+  nixpkgs.config.allowUnfree = true;
   # BASH
   programs.bash =
   {
@@ -92,6 +94,7 @@ in
   [ 
       pkgs.oh-my-posh 
       pkgs.tree
+      pkgs.slack
 
   ];
   home.file = {};
