@@ -2,7 +2,10 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.opt.clipboard = 'unnamedplus' -- use system keyboard for yank
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus' -- use system keyboard for yank
+end)
+
 vim.opt.nu = true                 -- set line numbers -- set line numbers
 vim.opt.relativenumber = true     -- use relative line numbers
 
@@ -16,13 +19,13 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
        
 vim.opt.incsearch = true -- incremental search
-       
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
--- global
---
+-- WHITESPACE CHARACTERS
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- open as vsplit on current node
 local function vsplit_preview()
