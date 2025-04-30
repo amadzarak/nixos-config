@@ -8,11 +8,17 @@
     position = "top";
     height = 26;
     output = [
-      "eDP-1"
+      "HDMI-A-1"
     ];
 
-    modules-left = [ "custom/logo" "sway/workspaces" "sway/mode" ];
-    modules-right = [ "sway/language" "clock" "battery" ];
+    modules-left = [ "custom/logo" "hyprland/workspaces" "sway/mode" ];
+    modules-right = [ 
+    "pulseaudio"
+    "network"
+    "temperature"
+    "battery"
+    "clock"
+   ];
     
     "custom/logo" = {
       format = "";
@@ -26,8 +32,8 @@
       persistent_workspaces = {
         "1" = []; 
         "2" = [];
-	"3" = [];
-	"4" = [];
+        "3" = [];
+        "4" = [];
       };
       disable-click = true;
     };
@@ -45,23 +51,48 @@
 
     "clock" = {
       interval = 60;
-      format = "{:%a %d/%m %I:%M}";
+      format = "[TIME: {:%a %d/%m %I:%M}]";
     };
 
     "battery" = {
       tooltip = false;
     };
+
+
+    "cpu"= {
+      format= "[CPU: {usage}%]";
+      tooltip= false;
+    };
+
+    "memory"= {
+      format= "[MEMORY: {}%  ]";
+    };
+
+    "temperature" =
+    {
+      format = "[TEMPERATURE: {temperatureF}]";
+    };
+
+    "network" = 
+    {
+      format = "[WIRELESS INTERFACE: {ifname} -> {gwaddr}] [{ipaddr}/{cidr} -> SIGNAL STRENGTH: {signalStrength}%]";
+    };
+
+    "pulseaudio" = 
+    {
+      format = "[SOUND SERVER -> PULSEAUDIO; VOLUME: {volume}]";
+      on-click = ''pavucontrol'';
+    };
   };
   };
 
   programs.waybar.style = ''
-  
   * {
     border: none;
     border-radius: 0;
     padding: 0;
     margin: 0;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   window#waybar {
@@ -90,6 +121,29 @@
     background-color: #383737;
   }
 
+  #memory {
+    margin-left: 7px;
+    margin-right: 3px;
+  }
+
+  #pulseaudio {
+    margin-left: 7px;
+    margin-right: 3px;
+  }
+
+  #network {
+    margin-left: 7px;
+    margin-right: 3px;
+  }
+  #clock {
+    margin-left: 7px;
+    margin-right: 3px;
+  }
+  #cpu {
+    margin-left: 7px;
+    margin-right: 3px;
+  }
+  
   #language {
     margin-right: 7px;		
   }
