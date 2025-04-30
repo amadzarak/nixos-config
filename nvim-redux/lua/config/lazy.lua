@@ -99,8 +99,17 @@ require("lazy").setup({
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
       },
     },
-  },
-  },
+  }, -- Autoformat
+
+{
+    'numToStr/Comment.nvim',
+    config = function(_, opts)
+      require('Comment').setup()
+
+
+    end
+}
+  }, -- end of spec block
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },

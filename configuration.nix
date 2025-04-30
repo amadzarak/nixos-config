@@ -107,6 +107,7 @@
   environment.systemPackages = with pkgs; [
 	  vim		# April 23, 2025: Install vim
 	  kitty		# [7:50 PM] April 23, 2025: Install kitty terminal
+    kitty-themes  #April 29, 2025
 	  wget		# [8:25 PM] April 23, 2025
 	  git		# [8:25 PM] April 23, 2025
 	  waybar	# [8:27 PM] April 23, 2025

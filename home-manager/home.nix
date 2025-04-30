@@ -3,6 +3,11 @@ let
 #  customNeovim = import ../nvim/nvim.nix;
 in
 {
+  imports =
+  [ # Include the results of the hardware scan.
+    ./waybar.nix
+  ];
+
   home.username = "amad";
   home.homeDirectory = "/home/amad";
   home.stateVersion = "24.11"; # Please read the comment before changing.
@@ -89,6 +94,18 @@ in
 #        (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [p.c p.go p.java p.python]))
 #    ];
 #  };
+
+  # KITTY
+  programs.kitty =
+  {
+    enable = true;
+    font = 
+    {
+      name = "Fira Code";
+      size = 11;
+    };
+    themeFile = "Catppuccin-Macchiato";
+  };
 
   home.packages = 
   [ 
