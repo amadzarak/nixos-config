@@ -126,6 +126,7 @@
 	  unzip		# [1:56 PM] April 26, 2025: Fix error in nvim 'style.lua' error
 	  nixfmt-rfc-style	# [7:36 PM] April 28, 2025: Add nixfmt package
     qemu    # QEMU emulator/virtualizer April 29, 2025 @ 7:36 PM
+    python311
   ];
 
   environment.shells = with pkgs; [zsh];

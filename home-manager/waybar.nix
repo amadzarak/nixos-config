@@ -93,6 +93,7 @@
     padding: 0;
     margin: 0;
     font-size: 14px;
+    font-family: monospace;
   }
 
   window#waybar {

@@ -22,6 +22,7 @@ in
     {
       "waybar-reload" = "pkill waybar && hyprctl dispatch exec waybar";
       "tree" = "tree -L 1";
+      "gcloud" = "/home/amad/Utilities/google-cloud-sdk/bin/gcloud";
     };
   };
 
@@ -36,6 +37,7 @@ in
     {
       "waybar-reload" = "pkill waybar && hyprctl dispatch exec waybar";
       "tree" = "tree -L 1";
+      "gcloud" = "/home/amad/Utilities/google-cloud-sdk/bin/gcloud";
     };
     oh-my-zsh = 
     {
@@ -105,6 +107,10 @@ in
       size = 11;
     };
     themeFile = "Catppuccin-Macchiato";
+    settings =
+    {
+      cursor_trail = 8;
+    };
   };
 
   home.packages = 
@@ -112,6 +118,8 @@ in
       pkgs.oh-my-posh 
       pkgs.tree
       pkgs.slack
+#      (pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.pubsub-emulator ])
+#      pkgs.google-app-engine-go-sdk
 
   ];
   home.file = {};
