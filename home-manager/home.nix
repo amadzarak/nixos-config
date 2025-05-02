@@ -120,7 +120,8 @@ in
       pkgs.slack
 #      (pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.pubsub-emulator ])
 #      pkgs.google-app-engine-go-sdk
-
+      pkgs.hyprshot
+      pkgs.mpvpaper
   ];
   home.file = {};
   home.sessionVariables = {};
