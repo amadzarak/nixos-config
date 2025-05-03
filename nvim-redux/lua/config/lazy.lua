@@ -100,7 +100,7 @@ require("lazy").setup({
       },
     },
   }, -- Autoformat
-
+-- COMMENT NEOVIM
 {
     'numToStr/Comment.nvim',
     config = function(_, opts)
@@ -108,7 +108,31 @@ require("lazy").setup({
 
 
     end
+},
+-- TREE SITTER
+{
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function () 
+      local configs = require("nvim-treesitter.configs")
+
+      configs.setup({
+          --ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },  
+        })
+    end
+ },
+
+    {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
 }
+
   }, -- end of spec block
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
