@@ -109,7 +109,7 @@ in
     themeFile = "Catppuccin-Macchiato";
     settings =
     {
-      cursor_trail = 8;
+      cursor_trail = 3;
     };
   };
 
@@ -122,6 +122,10 @@ in
 #      pkgs.google-app-engine-go-sdk
       pkgs.hyprshot
       pkgs.mpvpaper
+      pkgs.devenv
+      pkgs.postman
+      pkgs.insomnia
+      pkgs.awscli2
   ];
   home.file = {};
   home.sessionVariables = {};
