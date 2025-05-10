@@ -28,6 +28,10 @@
   # April 26, 2025: [11:21 AM] -> Enable nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+
+  # May 9, 2025: [08:27 PM]
+  nix.settings.trusted-users = ["root" "amad"];
+
   # April 23, 2025: [7:48 PM]: Enable hyprland
   programs.hyprland = 
   {
@@ -101,6 +105,14 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+
+  nix.extraOptions = ''
+    extra-substituters = https://devenv.cachix.org
+    extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
+    '';
+  
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
