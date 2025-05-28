@@ -140,6 +140,8 @@
     qemu    # QEMU emulator/virtualizer April 29, 2025 @ 7:36 PM
     python311
     docker-compose
+    nixd
+    devbox
   ];
 
   environment.shells = with pkgs; [zsh];

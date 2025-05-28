@@ -109,7 +109,7 @@ in
     themeFile = "Catppuccin-Macchiato";
     settings =
     {
-      cursor_trail = 3;
+      cursor_trail = 2;
     };
   };
 
