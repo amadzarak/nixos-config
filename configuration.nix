@@ -141,7 +141,7 @@
     python311
     docker-compose
     nixd
-    devbox
+    #    devbox
   ];
 
   environment.shells = with pkgs; [zsh];
